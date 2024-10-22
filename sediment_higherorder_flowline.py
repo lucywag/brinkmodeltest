@@ -39,21 +39,21 @@ def full_quad(order):
 # Logistic function
 sigmoid = lambda z: 1./(1+df.exp(-z))
 
-L = 40000.                  # Characteristic domain length *in meters) #changed from 45000 to 40000 cux leconte is 40 km long
+L = 40000.                  # Characteristic domain length *in meters) #changed from 45000 to 40000 bc leconte is 40 km long
 spy = 60**2*24*365          # seconds per  year
 thklim = 1.0                # Minimum Ice Thickness
 
 zmin = -270.0               # Minimum elevation (bedrock elevation) changed from 300 to 270 *O'Neel 2017
 zmax = 1800.0               # Maximum elevation (bedrock elevation) #was originally 2200 m 
 
-amin = df.Constant(-7.0)       # Minimum smb surface mass balance (ablation rate near terminus)
-amax = df.Constant(5.0)        # Maximum smb surface mass balance accumulation rate up high (meters per year)
+amin = df.Constant(-7.0)    # Minimum smb surface mass balance (ablation rate near terminus)
+amax = df.Constant(5.0)     # Maximum smb surface mass balance accumulation rate up high (meters per year)
 
 c = 2.0                     # Coefficient of exponential decay (f in equation 11??)
 
-amp = 100.0                   # Amplitude of sinusoidal topography (for bedrock topography)
+amp = 100.0                 # Amplitude of sinusoidal topography (for bedrock topography)
 
-rho = rho_i = 917.                  # Ice density
+rho = rho_i = 917.0         # Ice density
 rho_w = 1029.0              # Seawater density
 rho_s = 1600.0              # Sediment density
 rho_r = 2750.0              # Bedrock density
@@ -63,7 +63,7 @@ La = 3.35e5
 g = 9.81                    # Gravitational acceleration
 n = 3.0                     # Glen's exponent
 m = 1.0                     # Sliding law exponent
-b = 1e-16**(-1./n)          # Ice hardness (should be for temperate ice, check this)
+b = 1e-16**(-1.0/n)         # Ice hardness (should be for temperate ice, check this)
 eps_reg = df.Constant(1e-4)    # Regularization parameter
 
 l_s = df.Constant(2.0)         # Sediment thickness at which bedrock erosion becomes negligible 
